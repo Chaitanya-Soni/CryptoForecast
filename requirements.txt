@@ -1,11 +1,8 @@
-APScheduler==3.8.1
 asgiref==3.4.1
 backports.zoneinfo==0.2.1
 dj-database-url==0.5.0
 Django==3.2.8
-django-apscheduler==0.6.0
 django-cors-headers==3.10.0
-django-crontab==0.7.1
 django-heroku==0.3.1
 djangorestframework==3.12.4
 gunicorn==20.1.0
@@ -17,3 +14,13 @@ sqlparse==0.4.2
 tzdata==2021.5
 tzlocal==4.1
 whitenoise==5.3.0
+tensorflow==2.7.0
+numpy==1.19.5
+streamlit==0.52.1
+tweepy==3.10.0
+textblob==0.15.3
+pandas==1.2.2
+scikit_learn==0.24.1
+statsmodels==0.12.2
+alpha_vantage==2.3.1
+tweet-preprocessor==0.6.0

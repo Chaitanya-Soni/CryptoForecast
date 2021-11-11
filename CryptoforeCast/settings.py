@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import django_heroku
 
 from pathlib import Path
 
@@ -27,7 +26,7 @@ SECRET_KEY = 'fs7mosjuq9v5y4n0vyvd-hg$kwdh4$_+#5(6w26)=@l=-*e+%4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cryptofc.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,24 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',
-    'rest_framework.authtoken',
     #applications
-    'django_crontab',
     'core',
+    
 ]
-SCHEDULER_CONFIG = {
-    "apscheduler.jobstores.default": {
-        "class": "django_apscheduler.jobstores:DjangoJobStore"
-    },
-    'apscheduler.executors.processpool': {
-        "type": "threadpool"
-    },
-}
-SCHEDULER_AUTOSTART = True
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,11 +57,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'CryptoforeCast.urls'
 
-CRONJOBS = [
-    ('*/1 * * * *', 'core.cron.my_cron_job')
-]
-# /5 represent every 1 minutes
-# my_scheduled_job is the jobs we'll add 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -141,6 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-django_heroku.settings(locals())
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
