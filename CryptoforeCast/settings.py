@@ -83,7 +83,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': "cryptoforecastdb",
-        'USER':'cryptoforecastdbadmin',
+        'USER':'cryptoforecastdbadmin@cryptoforecastdb',
         'PASSWORD':'CRYPTO@#forecast123',
         'HOST':'cryptoforecastdb.postgres.database.azure.com',
         'PORT': '5432',
