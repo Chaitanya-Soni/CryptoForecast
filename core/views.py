@@ -89,25 +89,65 @@ def retrieving_tweets_polarity(symbol):
 class CoinSentimentList(APIView):
     def get(self,request,id):
         if(id==0):
-            serializer = BitcoinSerializer(many=True)
+            try :
+                data  = BitcoinSentiment.objects.all()
+                serializer = BitcoinSerializer(data , many=True)
+            except BitcoinSentiment.DoesNotExist :
+                serializer = BitcoinSerializer(many=True)
         if(id==1):
-            serializer = EthereumSerializer(many=True)
+            try :
+                data  = EthereumSentiment.objects.all()
+                serializer = EthereumSerializer(data,many=True)
+            except EthereumSentiment.DoesNotExist :
+                serializer = EthereumSerializer(many=True)
         if(id==2):
-            serializer = BinanceCoinSerializer(many=True)
+            try :
+                data  = BinanceCoinSentiment.objects.all()
+                serializer = BinanceCoinSerializer(data ,many=True)
+            except BinanceCoinSentiment.DoesNotExist :
+                serializer = BinanceCoinSerializer(many=True)
         if(id==3):
-            serializer = CardanoSerializer(many=True)
+            try :
+                data  = CardanoSentiment.objects.all()
+                serializer = CardanoSerializer(data ,many=True)
+            except CardanoSentiment.DoesNotExist :
+                serializer = CardanoSerializer(many=True)
         if(id==4):
-            serializer = SolanaSerializer(many=True)
+            try :                
+                data  = SolanaSentiment.objects.all()
+                serializer = SolanaSerializer(data ,many=True)
+            except SolanaSentiment.DoesNotExist :
+                serializer = SolanaSerializer(many=True)
         if(id==5):
-            serializer = PolkadotSerializer(many=True)
+            try :
+                data  = PolkadotSentiment.objects.all()
+                serializer = PolkadotSerializer(data,many=True)
+            except PolkadotSentiment.DoesNotExist :
+                serializer = PolkadotSerializer(many=True)
         if(id==6):
-            serializer = ShibaInuSerializer(many=True)
+            try :
+                data  = ShibaInuSentiment.objects.all()
+                serializer = ShibaInuSerializer(data,many=True)
+            except ShibaInuSentiment.DoesNotExist :
+                serializer = ShibaInuSerializer(many=True)
         if(id==7):
-            serializer = DogeCoinSerializer(many=True)
+            try :
+                data  = DogeCoinSentiment.objects.all()
+                serializer = DogeCoinSerializer(data,many=True)
+            except DogeCoinSentiment.DoesNotExist :
+                serializer = DogeCoinSerializer(many=True)
         if(id==8):
-            serializer = TerraSerializer(many=True)
+            try :
+                data  = TerraSentiment.objects.all()
+                serializer = TerraSerializer(data,many=True)
+            except TerraSentiment.DoesNotExist :
+                serializer = TerraSerializer(many=True)
         if(id==9):
-            serializer = LitecoinSerializer(many=True)
+            try :
+                data  = LitecoinSentiment.objects.all()
+                serializer = LitecoinSerializer(data,many=True)
+            except LitecoinSentiment.DoesNotExist :
+                serializer = LitecoinSerializer(many=True)
         return Response(serializer.data)        
 def updateCryptoSentiment(no):
     coin = ["bitcoin","ethereum","binance coin","cardano","solana","polkadot","shiba inu","dogecoin","terra","litecoin"]
