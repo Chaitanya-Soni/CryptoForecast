@@ -113,87 +113,87 @@ def updateCryptoSentiment(no):
     coin = ["bitcoin","ethereum","binance coin","cardano","solana","polkadot","shiba inu","dogecoin","terra","litecoin"]
     j=no
     for i in range(0,2) :
-        j=j+i
-        symbol = coin[j]
+        t=j+i
+        symbol = coin[t]
         a = retrieving_tweets_polarity(symbol)
         now = datetime.now()
-        if(j==0):
+        if(t==0):
             try :
                 b = BitcoinSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except BitcoinSentiment.DoesNotExist :
                 b = BitcoinSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==1):
+        if(t==1):
             try :
                 b = EthereumSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except EthereumSentiment.DoesNotExist :
                 b = EthereumSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==2):
+        if(t==2):
             try :
                 b = BinanceCoinSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except BinanceCoinSentiment.DoesNotExist :
                 b = BinanceCoinSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==3):
+        if(t==3):
             try :
                 b = CardanoSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except CardanoSentiment.DoesNotExist :
                 b = CardanoSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==4):
+        if(t==4):
             try :
                 b = SolanaSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except SolanaSentiment.DoesNotExist :
                 b = SolanaSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==5):
+        if(t==5):
             try :
                 b = PolkadotSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except PolkadotSentiment.DoesNotExist :
                 b = PolkadotSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==6):
+        if(t==6):
             try :
                 b = ShibaInuSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except ShibaInuSentiment.DoesNotExist :
                 b = ShibaInuSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==7):
+        if(t==7):
             try :
                 b = DogeCoinSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except DogeCoinSentiment.DoesNotExist :
                 b = DogeCoinSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==8):
+        if(t==8):
             try :
                 b = TerraSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except TerraSentiment.DoesNotExist :
                 b = TerraSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
-        if(j==9):
+        if(t==9):
             try :
                 b = LitecoinSentiment.objects.get(Date=now)
                 b.Date = now
-                b.save
+                b.save()
             except LitecoinSentiment.DoesNotExist :
                 b = LitecoinSentiment(FearIndex=a[0], Positive=a[1], Negative = a[2], Neutral = a[3])
                 b.save()
